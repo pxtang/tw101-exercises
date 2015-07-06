@@ -13,7 +13,6 @@ public class Node {
     }
 
     public void add(String nameOfNewNode) {
-        Node next;
         if (nameOfNewNode.compareToIgnoreCase(this.name) < 0) { // name after newNode
             if (left == null) {
                 left = new Node(nameOfNewNode);
