@@ -6,14 +6,39 @@ package com.thoughtworks.tw101.introductory_programming_exercises;
 //
 //  For example, generate(1) should return an empty list and generate(30) should return the numbers: 2,3,5.
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PrimeFactors {
     public static void main(String[] args) {
+//        for (int i = 1; i <= 50; i++) {
+//            List<Integer> primeFactors = generate(i);
+//            System.out.printf("prime factors of %d are %s\n",i,primeFactors);
+//        }
+
         List<Integer> primeFactors = generate(30);
+        System.out.println(primeFactors);
     }
 
     private static List<Integer> generate(int n) {
-        return null;
+        ArrayList<Integer> primes = new ArrayList<Integer>();
+
+        for (int i = 2; i <= n; i++) {
+            if (n % i != 0)
+                continue;
+
+            boolean isPrime = true;
+
+            for (int p : primes) {
+                if (i % p == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime)
+                primes.add(i);
+        }
+
+        return primes;
     }
 }
